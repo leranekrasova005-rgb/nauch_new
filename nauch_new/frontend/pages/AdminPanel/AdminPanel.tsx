@@ -340,7 +340,8 @@ const AdminPanel: React.FC = () => {
                           disabled={updating === user.id}
                         >
                           <option value="ADMIN">Администратор</option>
-                          <option value="METHODIST">Методист</option>
+                          <option value="METHODIST">Методист кафедры</option>
+                          <option value="NIO_STAFF">Сотрудник НИО</option>
                         </select>
                       </td>
                       <td>{user.publications_count}</td>

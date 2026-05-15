@@ -26,6 +26,7 @@ class PublicationViewSet(viewsets.ModelViewSet):
     queryset = Publication.objects.all()
     permission_classes = [IsAuthenticated]
     filter_fields = ['year', 'department', 'moderation_status', 'status']
+    search_fields = ['title', 'author', 'head', 'executors', 'event_name']
     ordering_fields = ['created_at', 'year', 'title']
     ordering = ['-created_at']
 
@@ -109,6 +110,19 @@ class PublicationViewSet(viewsets.ModelViewSet):
         publication_scope = self.request.query_params.get('publication_scope')
         if publication_scope:
             q = q.filter(publication_scope=publication_scope)
+        
+        # Фильтр по году (точное значение)
+        year = self.request.query_params.get('year')
+        if year:
+            try:
+                q = q.filter(year=int(year))
+            except (ValueError, TypeError):
+                pass
+        
+        # Фильтр по кафедре
+        department = self.request.query_params.get('department')
+        if department:
+            q = q.filter(department=department)
         
         sort_by = self.request.query_params.get('sort_by')
         if sort_by:

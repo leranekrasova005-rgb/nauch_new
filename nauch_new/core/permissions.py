@@ -12,6 +12,10 @@ def is_methodist(user):
     return hasattr(user, 'role') and user.role == 'METHODIST'
 
 
+def is_nio_staff(user):
+    return hasattr(user, 'role') and user.role == 'NIO_STAFF'
+
+
 class IsAdminOrReadOnly(permissions.BasePermission):
     def has_permission(self, request, view):
         if request.method in permissions.SAFE_METHODS:
@@ -42,7 +46,7 @@ class CanCreatePublication(permissions.BasePermission):
     def has_permission(self, request, view):
         if not request.user or not request.user.is_authenticated:
             return False
-        return is_methodist(request.user) or is_admin(request.user)
+        return is_methodist(request.user) or is_nio_staff(request.user) or is_admin(request.user)
 
 
 class CanUpdateOwnPublication(permissions.BasePermission):
@@ -57,12 +61,27 @@ class CanUpdateOwnPublication(permissions.BasePermission):
 
 class CanDeletePublication(permissions.BasePermission):
     def has_permission(self, request, view):
-        return request.user and request.user.is_authenticated
+        return request.user and request.user.is_authenticated and (is_nio_staff(request.user) or is_methodist(request.user) or is_admin(request.user))
     
     def has_object_permission(self, request, view, obj):
         if is_admin(request.user):
             return True
         return obj.owner == request.user and obj.status == 'active'
+
+
+class CanHardDeletePublication(permissions.BasePermission):
+    def has_permission(self, request, view):
+        return request.user and request.user.is_authenticated and is_admin(request.user)
+
+
+class CanModeratePublication(permissions.BasePermission):
+    def has_permission(self, request, view):
+        return request.user and request.user.is_authenticated and is_admin(request.user)
+
+
+class CanViewDeleteMarkedPublications(permissions.BasePermission):
+    def has_permission(self, request, view):
+        return request.user and request.user.is_authenticated and (is_nio_staff(request.user) or is_methodist(request.user) or is_admin(request.user))
 
 
 class CanManageDeleteRequests(permissions.BasePermission):

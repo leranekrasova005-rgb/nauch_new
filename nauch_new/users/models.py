@@ -5,13 +5,14 @@ from django.contrib.auth.models import AbstractUser
 class User(AbstractUser):
     ROLE_CHOICES = [
         ('ADMIN', 'Администратор'),
-        ('METHODIST', 'Методист'),
+        ('METHODIST', 'Методист кафедры'),
+        ('NIO_STAFF', 'Сотрудник НИО'),
     ]
 
     role = models.CharField(
         max_length=20,
         choices=ROLE_CHOICES,
-        default='METHODIST',
+        default='NIO_STAFF',
         verbose_name='Роль'
     )
     phone = models.CharField(max_length=20, blank=True, verbose_name='Телефон')
@@ -31,6 +32,10 @@ class User(AbstractUser):
     @property
     def is_methodist(self):
         return self.role == 'METHODIST'
+    
+    @property
+    def is_nio_staff(self):
+        return self.role == 'NIO_STAFF'
 
 
 class Department(models.Model):
