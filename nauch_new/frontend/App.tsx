@@ -6,7 +6,7 @@ import Statistics from './pages/Statistics/Statistics'
 import AdminPanel from './pages/AdminPanel/AdminPanel'
 import MethodistCabinet from './pages/MethodistCabinet/MethodistCabinet'
 import Layout from './components/Layout/Layout'
-import ToastProvider from './Toast'
+import ToastProvider from './components/Toast'
 
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { user } = useAuth()

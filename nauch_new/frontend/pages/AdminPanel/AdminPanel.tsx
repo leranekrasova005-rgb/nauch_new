@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import api from '../../services/api'
-import { useToast } from '../../Toast'
+import { useToast } from '../../components/Toast'
 import { Check, X, Users, FileText, Activity, Clock, Eye, MessageSquare } from 'lucide-react'
 import './AdminPanel.css'
 
