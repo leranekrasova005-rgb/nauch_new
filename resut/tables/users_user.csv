@@ -1,0 +1,4 @@
+id,password,last_login,is_superuser,username,first_name,last_name,email,is_staff,is_active,date_joined,phone,department,role
+1,pbkdf2_sha256$1000000$KfcTK82IoT5ULgNqXrZDHO$o242RHt0ZM+C2eZCH3UZMN1c48aK0stF1RRpE6p0Fao=,,1,admin,,,admin@test.com,1,1,2026-05-12 07:35:19.137323,,,ADMIN
+2,pbkdf2_sha256$1000000$iEhwMHVOJs6esJ5TTGnkVa$7p9cVzPE8xI6quz5XiFGwyC2rATloVx2dYtzlnYTiLc=,,0,methodist,,,methodist@test.com,0,1,2026-05-15 11:33:33.141097,,,METHODIST
+3,pbkdf2_sha256$1000000$3q97lgjQqmzeeNoPmz9a3b$YgG2DzgRFkvxDxAH7JIBfEtAiN/aHn3VvkjGNV4hv2k=,,0,nio_staff,,,nio@test.com,0,1,2026-05-15 12:51:59.159625,,КТОиТК,NIO_STAFF
