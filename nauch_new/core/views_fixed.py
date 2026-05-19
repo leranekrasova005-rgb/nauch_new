@@ -246,6 +246,7 @@ class PublicationViewSet(viewsets.ModelViewSet):
             pass
 
     @action(detail=False, methods=['get'], permission_classes=[IsAuthenticated])
+    def stats(self, request):
         cache_key = 'publication_stats_' + '_'.join(
             f'{k}={v}' for k, v in sorted(request.query_params.items())
         )
