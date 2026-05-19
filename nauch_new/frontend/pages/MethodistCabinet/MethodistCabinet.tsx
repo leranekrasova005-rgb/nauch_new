@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import api from '../../services/api'
-import { useToast } from '../../Toast'
+import { useToast } from '../../components/Toast'
 import { Plus, Edit, Trash2, Save, Clock, AlertCircle } from 'lucide-react'
 import './MethodistCabinet.css'
 
