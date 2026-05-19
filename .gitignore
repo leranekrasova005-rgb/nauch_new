@@ -2,19 +2,20 @@
 # Compiled and build artifacts
 *.pyc
 __pycache__/
-*.pyo
-*.pyd
+*.o
+*.obj
 *.so
-*.egg-info/
+*.dll
+*.exe
+*.class
+*.out
 
 # Dependencies
 .venv/
 venv/
-env/
-ENV/
 .env
-.env.*
-requirements.txt.bak
+.env.local
+*.env.*
 
 # Logs and temp files
 *.log
@@ -25,47 +26,20 @@ requirements.txt.bak
 # Editors
 .vscode/
 .idea/
-*.sublime-project
-*.sublime-workspace
 
-# OS generated files
+# System files
 .DS_Store
 Thumbs.db
-desktop.ini
 
-# Coverage reports
+# Coverage and testing
 .coverage
 coverage/
 htmlcov/
 
-# Python specific
-*.py[cod]
-*$py.class
-*.so
-.Python
-build/
-develop-eggs/
+# Build directories
 dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-
-# Cache
+build/
+target/
 .mypy_cache/
 .pytest_cache/
-.tox/
-.hypothesis/
-
-# Local configuration
-config/local_settings.py
-.svn/
 ```
