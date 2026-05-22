@@ -1,0 +1,2 @@
+INFO 2026-05-22 08:45:31,518 autoreload Watching for file changes with StatReloader
+INFO 2026-05-22 08:45:35,580 basehttp "GET /admin/ HTTP/1.1" 302 0
